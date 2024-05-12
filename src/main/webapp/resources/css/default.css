@@ -10,24 +10,24 @@ body {
     display:block;
     background-color:white;
     font-size: 45pt;
-    width: 32px;
-    height: 52px;
+    width: 46px;
+    height: 58px;
 }
 
 .numberFieldBlue {
     display:block;
     background-color:rgb(110, 219, 255);
     font-size: 45pt;
-    width: 32px;
-    height: 52px;
+    width: 46px;
+    height: 58px;
 }
 
 .numberFieldGreen {
     display:block;
     background-color:rgb(82, 218, 82);
     font-size: 45pt;
-    width: 32px;
-    height: 52px;
+    width: 46px;
+    height: 58px;
 }
 
 .numberFieldRed {
@@ -35,22 +35,22 @@ body {
     width: 7px;
     background-color:rgb(255, 84, 84);
     font-size: 45pt;
-    width: 32px;
-    height: 52px;
+    width: 46px;
+    height: 58px;
 }
 
 .numberFieldOrange {
     display:block;
     background-color:rgb(255, 182, 46);
     font-size: 45pt;
-    width: 32px;
-    height: 52px;
+    width: 46px;
+    height: 58px;
 }
 
 .numberFieldYellow {
     display:block;
     background-color:rgb(255, 255, 80);
     font-size: 45pt;
-    width: 32px;
-    height: 52px;
+    width: 46px;
+    height: 58px;
 }

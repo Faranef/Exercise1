@@ -1,44 +1,69 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:h="jakarta.faces.html" 
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="jakarta.faces.facelets"  
-      xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:p="http://primefaces.org/ui"
+  xmlns:ui="jakarta.faces.facelets" xml:lang="en">
 
 <h:head>
   <title>Numberle</title>
   <h:outputStylesheet name="css/default.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </link>
 </h:head>
 <h:body>
-  <h1>Numberle</h1>
 
-  <div>
-    <h:outputText value="Guess the number: " />
-    <br />
-    <h:outputText value="${numberDTO.chosenNumber}"/>
-    <h:form>
-    <br />
-    <h:panelGrid columns="6">
-        <h:inputText size="24" styleClass="${numberDTO.numberOneColour}" value="#{numberDTO.numberOne}" />
-        <h:inputText size="24" styleClass="${numberDTO.numberTwoColour}" value="#{numberDTO.numberTwo}" />
-        <h:inputText size="24" styleClass="${numberDTO.numberThreeColour}" value="#{numberDTO.numberThree}" />
-        <h:inputText size="24" styleClass="${numberDTO.numberFourColour}" value="#{numberDTO.numberFour}" />
-        <h:inputText size="24" styleClass="${numberDTO.numberFiveColour}" value="#{numberDTO.numberFive}" />
-        <h:inputText size="24" styleClass="${numberDTO.numberSixColour}" value="#{numberDTO.numberSix}" />
-      </h:panelGrid>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <h1>Numberle</h1>
 
-      <h:commandButton value="Guess" action="#{numberDTO.guess}" disabled="${numberDTO.isGameOver}"/> 
+        <h:outputText value="Guess the number: " />
+        <br />
+        <h:outputText value="${numberDTO.chosenNumber}" />
+        <h:form>
+          <br />
+          <div class="row">
+            <div class="col">
+              <h:inputText size="24" styleClass="${numberDTO.numberOneColour}" value="#{numberDTO.numberOne}" />
+            </div>
+            <div class="col">
+              <h:inputText size="24" styleClass="${numberDTO.numberTwoColour}" value="#{numberDTO.numberTwo}" />
+            </div>
+            <div class="col">
+              <h:inputText size="24" styleClass="${numberDTO.numberThreeColour}" value="#{numberDTO.numberThree}" />
+            </div>
+            <div class="col">
+              <h:inputText size="24" styleClass="${numberDTO.numberFourColour}" value="#{numberDTO.numberFour}" />
+            </div>
+            <div class="col">
+              <h:inputText size="24" styleClass="${numberDTO.numberFiveColour}" value="#{numberDTO.numberFive}" />
+            </div>
+            <div class="col">
+              <h:inputText size="24" styleClass="${numberDTO.numberSixColour}" value="#{numberDTO.numberSix}" />
+            </div>
+          </div>
 
-      <h:commandButton value="Reset" action="#{numberDTO.reset}" disabled="${numberDTO.isGameOver}"/>
-      <br />
-      <h:outputText value = "${numberDTO.guessCount}"/>
-      <br />
-      <h:commandButton value="New Game" action="#{numberDTO.newGame}"  />
-    </h:form>
+          <br />
+          <h:outputText value="Try: ${numberDTO.guessCount}" />
+          <br />
+          <h:commandButton value="Guess" style="margin-right:5px;" action="#{numberDTO.guess}" disabled="${numberDTO.isGameOver}" />
+          <h:commandButton value="Reset"  action="#{numberDTO.reset}" disabled="${numberDTO.isGameOver}" />
+          <br />
+          <br />
+          <h:commandButton value="New Game" action="#{numberDTO.newGame}" />
+        </h:form>
 
-    <h:outputText value = "${numberDTO.gameState}" rendered="${numberDTO.isGameOver}"/>
+        <h:outputText value="${numberDTO.gameState}" rendered="${numberDTO.isGameOver}" />
+
+
+      </div>
+      <div class="col">
+      </div>
+    </div>
+
 
   </div>
 

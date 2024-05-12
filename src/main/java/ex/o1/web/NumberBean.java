@@ -89,7 +89,6 @@ public class NumberBean implements Serializable
         guessCount++;
         logger.info("--- so far guessed: " + guessCount + " times.");
 
-        // check if won
         List<Integer> pickedNumbers = Arrays.asList(numberOne,numberTwo,numberThree,numberFour,numberFive,numberSix);
         var gamestate = checkGuessNumberService.CheckIfWon(chosenNumber,pickedNumbers,guessCount);
 
@@ -152,7 +151,6 @@ public class NumberBean implements Serializable
 
     public void setNumberOne(int numberOne) {
         this.numberOne = numberOne;
-
     }
 
     public int getNumberTwo() {
@@ -250,7 +248,6 @@ public class NumberBean implements Serializable
     public void setNumberOneColour(String numberOneColour) {
         this.numberOneColour = numberOneColour;
     }
-
 
     public int getChosenNumber() {
         return chosenNumber;
