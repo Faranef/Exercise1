@@ -60,16 +60,12 @@ public class CheckGuessNumber implements ICheckGuessNumber {
             return NumberPosition.Green;
         }
 
-        if (index > 0) {
-            if (numberAsString[index - 1] == pickedChar) {
-                return NumberPosition.Yellow;
-            }
+        if (index > 0 && (numberAsString[index - 1] == pickedChar)) {
+            return NumberPosition.Yellow;
         }
 
-        if (index < 5) {
-            if (numberAsString[index + 1] == pickedChar) {
-                return NumberPosition.Orange;
-            }
+        if (index < 5 && (numberAsString[index + 1] == pickedChar)){
+            return NumberPosition.Orange;
         }
 
         if (new String(numberAsString).contains(pickedNumberString)) {

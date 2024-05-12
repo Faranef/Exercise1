@@ -8,8 +8,6 @@ import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Max;
 
 @SessionScoped
 @Named("numberDTO")
@@ -18,8 +16,6 @@ public class NumberBean implements Serializable
     @EJB
     private ICheckGuessNumber checkGuessNumberService;
 
-    @Min(0)
-    @Max(9)
     private int numberOne;
     private int numberTwo;
     private int numberThree;
@@ -27,6 +23,7 @@ public class NumberBean implements Serializable
     private int numberFive;
     private int numberSix;
     private int chosenNumber;
+    private int guessCount;
 
     private String numberOneColour = "numberField";
     private String numberTwoColour = "numberField";
@@ -34,63 +31,6 @@ public class NumberBean implements Serializable
     private String numberFourColour = "numberField";
     private String numberFiveColour = "numberField";
     private String numberSixColour = "numberField";
-
-    public String getNumberSixColour() {
-        return numberSixColour;
-    }
-
-    public void setNumberSixColour(String numberSixColour) {
-        this.numberSixColour = numberSixColour;
-    }
-
-    public String getNumberFiveColour() {
-        return numberFiveColour;
-    }
-
-    public void setNumberFiveColour(String numberFiveColour) {
-        this.numberFiveColour = numberFiveColour;
-    }
-
-    public String getNumberFourColour() {
-        return numberFourColour;
-    }
-
-    public void setNumberFourColour(String numberFourColour) {
-        this.numberFourColour = numberFourColour;
-    }
-
-    public String getNumberThreeColour() {
-        return numberThreeColour;
-    }
-
-    public void setNumberThreeColour(String numberThreeColour) {
-        this.numberThreeColour = numberThreeColour;
-    }
-    
-    public String getNumberTwoColour() {
-        return numberTwoColour;
-    }
-
-    public void setNumberTwoColour(String numberTwoColour) {
-        this.numberTwoColour = numberTwoColour;
-    }
-
-    public String getNumberOneColour() {
-        return numberOneColour;
-    }
-
-    public void setNumberOneColour(String numberOneColour) {
-        this.numberOneColour = numberOneColour;
-    }
-
-
-    public int getChosenNumber() {
-        return chosenNumber;
-    }
-
-    public void setChosenNumber(int chosenNumber) {
-        this.chosenNumber = chosenNumber;
-    }
 
     @PostConstruct
     public void init() {
@@ -164,6 +104,8 @@ public class NumberBean implements Serializable
         if (returnGuessFour == NumberPosition.Yellow) setNumberFourColour("numberFieldYellow");
         if (returnGuessFive == NumberPosition.Yellow) setNumberFiveColour("numberFieldYellow");
         if (returnGuessSix == NumberPosition.Yellow) setNumberSixColour("numberFieldYellow");
+
+        guessCount++;
     }
 
     public int getNumberOne() {
@@ -215,4 +157,68 @@ public class NumberBean implements Serializable
         this.numberSix = numberSix;
     }
 
+    public int getGuessCount() {
+        return guessCount;
+    }
+
+    public void setGuessCount(int guessCount) {
+        this.guessCount = guessCount;
+    }
+
+    public String getNumberSixColour() {
+        return numberSixColour;
+    }
+
+    public void setNumberSixColour(String numberSixColour) {
+        this.numberSixColour = numberSixColour;
+    }
+
+    public String getNumberFiveColour() {
+        return numberFiveColour;
+    }
+
+    public void setNumberFiveColour(String numberFiveColour) {
+        this.numberFiveColour = numberFiveColour;
+    }
+
+    public String getNumberFourColour() {
+        return numberFourColour;
+    }
+
+    public void setNumberFourColour(String numberFourColour) {
+        this.numberFourColour = numberFourColour;
+    }
+
+    public String getNumberThreeColour() {
+        return numberThreeColour;
+    }
+
+    public void setNumberThreeColour(String numberThreeColour) {
+        this.numberThreeColour = numberThreeColour;
+    }
+    
+    public String getNumberTwoColour() {
+        return numberTwoColour;
+    }
+
+    public void setNumberTwoColour(String numberTwoColour) {
+        this.numberTwoColour = numberTwoColour;
+    }
+
+    public String getNumberOneColour() {
+        return numberOneColour;
+    }
+
+    public void setNumberOneColour(String numberOneColour) {
+        this.numberOneColour = numberOneColour;
+    }
+
+
+    public int getChosenNumber() {
+        return chosenNumber;
+    }
+
+    public void setChosenNumber(int chosenNumber) {
+        this.chosenNumber = chosenNumber;
+    }
 }
