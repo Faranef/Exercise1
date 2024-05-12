@@ -1,0 +1,43 @@
+body {
+    background-color: #ffffff;
+    font-size: 24px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+
+.numberField {
+    display:block;
+    width: 7px;
+    background-color:white
+}
+
+.numberFieldBlue {
+    display:block;
+    width: 7px;
+    background-color:lightblue
+}
+
+.numberFieldGreen {
+    display:block;
+    width: 7px;
+    background-color:lightgreen
+}
+
+.numberFieldRed {
+    display:block;
+    width: 7px;
+    background-color:lightcoral
+}
+
+.numberFieldOrange {
+    display:block;
+    width: 7px;
+    background-color:lightsalmon
+}
+
+.numberFieldYellow {
+    display:block;
+    width: 7px;
+    background-color:lightyellow
+}

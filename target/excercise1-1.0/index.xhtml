@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="jakarta.faces.html" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="jakarta.faces.facelets"  
+      xml:lang="en">
+
+<h:head>
+  <title>Numberle</title>
+  <h:outputStylesheet name="css/default.css" />
+</h:head>
+<h:body>
+  <h1>Numberle</h1>
+
+  <div>
+    <h:outputText value="Guess the number " />
+    <br />
+    <h:outputText value="${numberDTO.chosenNumber}"/>
+    <h:form>
+    <br />
+    <h:panelGrid columns="6">
+        <h:inputText styleClass="${numberDTO.numberOneColour}" value="#{numberDTO.numberOne}" />
+        <h:inputText styleClass="${numberDTO.numberTwoColour}" value="#{numberDTO.numberTwo}" />
+        <h:inputText styleClass="${numberDTO.numberThreeColour}" value="#{numberDTO.numberThree}" />
+        <h:inputText styleClass="${numberDTO.numberFourColour}" value="#{numberDTO.numberFour}" />
+        <h:inputText styleClass="${numberDTO.numberFiveColour}" value="#{numberDTO.numberFive}" />
+        <h:inputText styleClass="${numberDTO.numberSixColour}" value="#{numberDTO.numberSix}" />
+      </h:panelGrid>
+
+      <h:commandButton value="Guess" action="#{numberDTO.guess}" /> 
+      <br />
+      <h:commandButton value="Reset" action="#{numberDTO.reset}" />
+      <br />
+      <h:commandButton value="New Game" action="#{numberDTO.newGame}" />
+    </h:form>
+  </div>
+
+</h:body>
+
+</html>
