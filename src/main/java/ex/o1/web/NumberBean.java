@@ -1,8 +1,12 @@
 package ex.o1.web;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.logging.log4j.*;
 
+import ex.o1.Models.GameState;
 import ex.o1.Models.NumberPosition;
 import ex.o1.services.CheckGuessNumber;
 import ex.o1.services.ICheckGuessNumber;
@@ -36,6 +40,10 @@ public class NumberBean implements Serializable
     private String numberFiveColour = "numberField";
     private String numberSixColour = "numberField";
 
+    private GameState gameState;
+    private Boolean isGameOver = false;
+
+
     @PostConstruct
     public void init() {
         chosenNumber = checkGuessNumberService.GetRandomNumberFromList();
@@ -45,6 +53,8 @@ public class NumberBean implements Serializable
     {
         reset();
         chosenNumber = checkGuessNumberService.GetRandomNumberFromList();
+        setIsGameOver(false);
+        setGuessCount(0);
     }
 
     public void reset()
@@ -74,6 +84,32 @@ public class NumberBean implements Serializable
         var returnGuessFive = checkGuessNumberService.CheckNumberPosition(4,numberFive,chosenNumber);
         var returnGuessSix = checkGuessNumberService.CheckNumberPosition(5,numberSix,chosenNumber);
 
+        SetNumberFiledColour(returnGuessOne, returnGuessTwo, returnGuessThree, returnGuessFour, returnGuessFive, returnGuessSix);
+
+        guessCount++;
+        logger.info("--- so far guessed: " + guessCount + " times.");
+
+        // check if won
+        List<Integer> pickedNumbers = Arrays.asList(numberOne,numberTwo,numberThree,numberFour,numberFive,numberSix);
+        var gamestate = checkGuessNumberService.CheckIfWon(chosenNumber,pickedNumbers,guessCount);
+
+        if (gamestate == GameState.GameOver)
+        {
+            setIsGameOver(true);
+        }
+        
+        if (gamestate == GameState.Won)
+        {
+            setIsGameOver(true);
+        }
+
+        setGameState(gamestate);
+    }
+
+    private void SetNumberFiledColour(NumberPosition returnGuessOne, NumberPosition returnGuessTwo,
+            NumberPosition returnGuessThree, NumberPosition returnGuessFour, NumberPosition returnGuessFive,
+            NumberPosition returnGuessSix) 
+    {
         if (returnGuessOne == NumberPosition.Blue) setNumberOneColour("numberFieldBlue");
         if (returnGuessTwo == NumberPosition.Blue) setNumberTwoColour("numberFieldBlue");
         if (returnGuessThree == NumberPosition.Blue) setNumberThreeColour("numberFieldBlue");
@@ -108,9 +144,6 @@ public class NumberBean implements Serializable
         if (returnGuessFour == NumberPosition.Yellow) setNumberFourColour("numberFieldYellow");
         if (returnGuessFive == NumberPosition.Yellow) setNumberFiveColour("numberFieldYellow");
         if (returnGuessSix == NumberPosition.Yellow) setNumberSixColour("numberFieldYellow");
-
-        guessCount++;
-        logger.info("--- so far guessed: " + guessCount + " times.");
     }
 
     public int getNumberOne() {
@@ -225,5 +258,21 @@ public class NumberBean implements Serializable
 
     public void setChosenNumber(int chosenNumber) {
         this.chosenNumber = chosenNumber;
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
+    
+    public Boolean getIsGameOver() {
+        return isGameOver;
+    }
+
+    public void setIsGameOver(Boolean isGameOver) {
+        this.isGameOver = isGameOver;
     }
 }

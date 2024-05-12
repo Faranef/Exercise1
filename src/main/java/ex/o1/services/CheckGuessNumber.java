@@ -11,6 +11,7 @@ import java.util.Random;
 import jakarta.ejb.Stateless;
 import org.apache.logging.log4j.*;
 
+import ex.o1.Models.GameState;
 import ex.o1.Models.NumberPosition;
 
 @Stateless
@@ -73,6 +74,31 @@ public class CheckGuessNumber implements ICheckGuessNumber {
         }
 
         return NumberPosition.Red;
+    }
+
+    @Override
+    public GameState CheckIfWon(int randomNumber, List<Integer> pickedNumbers, int guessCount) 
+    {
+        String pickedNumberString = "";
+        String randomNumerString = Integer.toString(randomNumber);
+
+        for (Integer integer : pickedNumbers) 
+        {
+            pickedNumberString += Integer.toString(integer);
+        }
+
+        if (randomNumerString.equals(pickedNumberString)) 
+        {
+            return GameState.Won;
+        }
+        else if(guessCount == 6)
+        {
+            return GameState.GameOver;
+        }
+        else
+        {
+            return GameState.StillOn;
+        }
     }
 
 }

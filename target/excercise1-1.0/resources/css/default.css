@@ -8,36 +8,49 @@ body {
 
 .numberField {
     display:block;
-    width: 7px;
-    background-color:white
+    background-color:white;
+    font-size: 45pt;
+    width: 32px;
+    height: 52px;
 }
 
 .numberFieldBlue {
     display:block;
-    width: 7px;
-    background-color:lightblue
+    background-color:rgb(110, 219, 255);
+    font-size: 45pt;
+    width: 32px;
+    height: 52px;
 }
 
 .numberFieldGreen {
     display:block;
-    width: 7px;
-    background-color:lightgreen
+    background-color:rgb(82, 218, 82);
+    font-size: 45pt;
+    width: 32px;
+    height: 52px;
 }
 
 .numberFieldRed {
     display:block;
     width: 7px;
-    background-color:lightcoral
+    background-color:rgb(255, 84, 84);
+    font-size: 45pt;
+    width: 32px;
+    height: 52px;
 }
 
 .numberFieldOrange {
     display:block;
-    width: 7px;
-    background-color:lightsalmon
+    background-color:rgb(255, 182, 46);
+    font-size: 45pt;
+    width: 32px;
+    height: 52px;
 }
 
 .numberFieldYellow {
     display:block;
-    width: 7px;
-    background-color:lightyellow
+    background-color:rgb(255, 255, 80);
+    font-size: 45pt;
+    width: 32px;
+    height: 52px;
 }

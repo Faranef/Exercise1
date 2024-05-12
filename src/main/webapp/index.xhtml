@@ -15,26 +15,31 @@
   <h1>Numberle</h1>
 
   <div>
-    <h:outputText value="Guess the number " />
+    <h:outputText value="Guess the number: " />
     <br />
     <h:outputText value="${numberDTO.chosenNumber}"/>
     <h:form>
     <br />
     <h:panelGrid columns="6">
-        <h:inputText styleClass="${numberDTO.numberOneColour}" value="#{numberDTO.numberOne}" />
-        <h:inputText styleClass="${numberDTO.numberTwoColour}" value="#{numberDTO.numberTwo}" />
-        <h:inputText styleClass="${numberDTO.numberThreeColour}" value="#{numberDTO.numberThree}" />
-        <h:inputText styleClass="${numberDTO.numberFourColour}" value="#{numberDTO.numberFour}" />
-        <h:inputText styleClass="${numberDTO.numberFiveColour}" value="#{numberDTO.numberFive}" />
-        <h:inputText styleClass="${numberDTO.numberSixColour}" value="#{numberDTO.numberSix}" />
+        <h:inputText size="24" styleClass="${numberDTO.numberOneColour}" value="#{numberDTO.numberOne}" />
+        <h:inputText size="24" styleClass="${numberDTO.numberTwoColour}" value="#{numberDTO.numberTwo}" />
+        <h:inputText size="24" styleClass="${numberDTO.numberThreeColour}" value="#{numberDTO.numberThree}" />
+        <h:inputText size="24" styleClass="${numberDTO.numberFourColour}" value="#{numberDTO.numberFour}" />
+        <h:inputText size="24" styleClass="${numberDTO.numberFiveColour}" value="#{numberDTO.numberFive}" />
+        <h:inputText size="24" styleClass="${numberDTO.numberSixColour}" value="#{numberDTO.numberSix}" />
       </h:panelGrid>
 
-      <h:commandButton value="Guess" action="#{numberDTO.guess}" /> 
+      <h:commandButton value="Guess" action="#{numberDTO.guess}" disabled="${numberDTO.isGameOver}"/> 
+
+      <h:commandButton value="Reset" action="#{numberDTO.reset}" disabled="${numberDTO.isGameOver}"/>
       <br />
-      <h:commandButton value="Reset" action="#{numberDTO.reset}" />
+      <h:outputText value = "${numberDTO.guessCount}"/>
       <br />
-      <h:commandButton value="New Game" action="#{numberDTO.newGame}" />
+      <h:commandButton value="New Game" action="#{numberDTO.newGame}"  />
     </h:form>
+
+    <h:outputText value = "${numberDTO.gameState}" rendered="${numberDTO.isGameOver}"/>
+
   </div>
 
 </h:body>

@@ -2,3 +2,4 @@ ex\o1\Models\NumberPosition.class
 ex\o1\web\NumberBean.class
 ex\o1\services\ICheckGuessNumber.class
 ex\o1\services\CheckGuessNumber.class
+ex\o1\Models\GameState.class
