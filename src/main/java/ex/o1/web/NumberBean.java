@@ -1,8 +1,10 @@
 package ex.o1.web;
 
 import java.io.Serializable;
+import org.apache.logging.log4j.*;
 
 import ex.o1.Models.NumberPosition;
+import ex.o1.services.CheckGuessNumber;
 import ex.o1.services.ICheckGuessNumber;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
@@ -13,6 +15,8 @@ import jakarta.inject.Named;
 @Named("numberDTO")
 public class NumberBean implements Serializable 
 {
+    private static final Logger logger = LogManager.getLogger(CheckGuessNumber.class);
+        
     @EJB
     private ICheckGuessNumber checkGuessNumberService;
 
@@ -106,6 +110,7 @@ public class NumberBean implements Serializable
         if (returnGuessSix == NumberPosition.Yellow) setNumberSixColour("numberFieldYellow");
 
         guessCount++;
+        logger.info("--- so far guessed: " + guessCount + " times.");
     }
 
     public int getNumberOne() {
